@@ -1,0 +1,53 @@
+@use './utils/fonts';
+@use './utils/text';
+@use './utils/variables' as *;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: $smoke;
+  color: $text;
+  padding: 6rem 2rem;
+}
+
+.button {
+  width: fit-content;
+  border: none;
+  text-decoration: none;
+  padding: .5rem 1rem;
+  border-radius: .25rem;
+  background: $accent;
+  font-family: 'Inter', sans-serif;
+  font-size: .875rem;
+  font-weight: 500;
+  color: $accent-text;
+
+  &:visited {
+    color: $accent-text;
+  }
+}
+
+button {
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+}
+
+select {
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 4rem 1rem;
+  }
+}

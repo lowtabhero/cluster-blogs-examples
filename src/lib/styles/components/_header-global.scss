@@ -1,0 +1,67 @@
+@use '../utils/variables' as *;
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  padding: .5rem 2rem;
+  box-sizing: border-box;
+  background-color: $secondary;
+
+  >.wrapper {
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    >.logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      >img {
+        height: 100%;
+        width: auto;
+      }
+    }
+
+    >nav {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      gap: 1rem;
+
+      >.links {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 1rem;
+
+        >a {
+          color: $smoke;
+          text-decoration: none;
+        }
+      }
+
+      >.language-selector {
+        color: $smoke;
+
+        >option {
+          color: $text;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: .5rem 1rem;
+  }
+}

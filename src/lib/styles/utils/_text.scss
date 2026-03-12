@@ -1,0 +1,37 @@
+@use './variables' as *;
+
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+  margin: 0;
+}
+
+ul {
+  padding-left: 1.5rem;
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+a {
+  color: $accent;
+
+  &:visited {
+    color: $accent-dark;
+  }
+}
