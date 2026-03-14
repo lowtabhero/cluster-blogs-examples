@@ -1,25 +1,22 @@
-import { json } from "@sveltejs/kit"
 import { requestWP } from "$lib/wpApi.server";
 
 export async function load(event) {
   const searchParams = new URLSearchParams();
-  // get id
   // searchParams.append('id', '350');
 
   const response = await requestWP(event, 'posts', searchParams);
 
   if (!response.ok) return;
-  if (!Array.isArray(response.data) && !response.data.length > 0) return;
+  if (!Array.isArray(response.data) || response.data.length === 0) return;
 
   // normalize blogs
   // id
-  // tag
-  // meta
+  // slug
   // featured image
+  // tag
   // title
-  // content
-
+  // short desc or first 2 lines of content
   return {
-    blog: response.data
+    blogs: response.data
   }
 }

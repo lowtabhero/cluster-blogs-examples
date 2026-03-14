@@ -1,10 +1,12 @@
-<script>
+<script lang="ts">
 	import '$lib/styles/components/_header-global.scss';
 	import { browser } from '$app/environment';
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
 
-	let { t, lang } = $props();
+	import type { Translation, Lang } from '$lib/translations/translationsType';
+
+	let { t, lang }: { t: Translation['header']; lang: Lang } = $props();
 	let langSelected = $derived(lang);
 
 	$effect(() => {

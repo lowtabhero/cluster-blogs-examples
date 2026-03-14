@@ -1,5 +1,5 @@
-<script>
-	import '../lib/styles/style.scss';
+<script lang="ts">
+	import '$lib/styles/style.scss';
 	import HeaderGlobal from '$lib/components/HeaderGlobal.svelte';
 	import { onMount } from 'svelte';
 	let { children, data } = $props();
