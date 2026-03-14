@@ -31,9 +31,9 @@
 				<a href="https://internal.stockscout.eu/{lang}/#contacts">{t.contactsLink}</a>
 			</div>
 			<select name="lang" id="lang" class="language-selector" bind:value={langSelected}>
-				<option value="en">EN</option>
-				<option value="es">ES</option>
-				<option value="ru">RU</option>
+				<option value="en">En</option>
+				<option value="es">Es</option>
+				<option value="ru">Ru</option>
 			</select>
 		</nav>
 	</div>
