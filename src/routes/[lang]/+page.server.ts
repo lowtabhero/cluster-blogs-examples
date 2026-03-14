@@ -1,22 +1,19 @@
-import { requestWP } from "$lib/wpApi.server";
+import { requestWP, normalizeBlog } from "$lib/wpApi.server";
+import type { NormalizedBlog } from "$lib/NormalizedBlogType.js";
 
 export async function load(event) {
-  const searchParams = new URLSearchParams();
-  // searchParams.append('id', '350');
-
-  const response = await requestWP(event, 'posts', searchParams);
-
+  const response = await requestWP(event, 'posts');
   if (!response.ok) return;
-  if (!Array.isArray(response.data) || response.data.length === 0) return;
 
-  // normalize blogs
-  // id
-  // slug
-  // featured image
-  // tag
-  // title
-  // short desc or first 2 lines of content
+  const blogs = response.data;
+  if (!Array.isArray(blogs) || blogs.length === 0) return;
+
+  const normalizedBlogs: Array<NormalizedBlog> = [];
+  blogs.forEach((blog) => {
+    normalizedBlogs.push(normalizeBlog(blog))
+  })
+
   return {
-    blogs: response.data
+    blogs: normalizedBlogs
   }
 }

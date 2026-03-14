@@ -5,8 +5,6 @@
 	import BlogCard from '$lib/components/BlogCard.svelte';
 
 	const { data } = $props();
-
-	let t = $derived(data.translation);
 </script>
 
 <main>
