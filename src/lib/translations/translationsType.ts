@@ -2,7 +2,7 @@ export type Translation = {
   header: {
     examplesLink: string;
     contactsLink: string;
-  },
+  };
   home: {
     title: string;
     paragraph: string;
@@ -12,6 +12,11 @@ export type Translation = {
       pillars: string;
       clusters: string;
     }
+  };
+  blog: {
+    backTo: string;
+    h1Title: string;
+    genType: string;
   }
 }
 export type Lang = 'en' | 'ru' | 'es';

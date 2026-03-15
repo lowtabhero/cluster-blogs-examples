@@ -14,5 +14,10 @@ export const translation: Translation = {
       pillars: 'Опорные',
       clusters: 'Кластеры',
     }
+  },
+  blog: {
+    backTo: 'Назад ко всем блогам',
+    h1Title: 'Эта страница показывает только примеры генерации',
+    genType: 'Время генерации всего кластера'
   }
 }
