@@ -2,8 +2,6 @@
 	import '$lib/styles/pages/_blog.scss';
 
 	const { data } = $props();
-
-	console.log(data);
 </script>
 
 <main>
