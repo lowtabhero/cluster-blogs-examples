@@ -6,8 +6,8 @@ export const translation: Translation = {
     contactsLink: 'Contact'
   },
   home: {
-    title: 'Title en',
-    paragraph: 'Some desc en',
+    title: 'Content Generation Examples',
+    paragraph: 'This page contains examples of automatically generated content clusters. These articles are shown only as demonstrations and are not intended to be real content for search engine indexing.',
     filter: {
       label: 'Show',
       all: 'All',

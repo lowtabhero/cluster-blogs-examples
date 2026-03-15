@@ -48,7 +48,7 @@
 </script>
 
 <main>
-	<div>
+	<div class="page-info">
 		<h1>{data.translation.home.title}</h1>
 		<p>{data.translation.home.paragraph}</p>
 	</div>
