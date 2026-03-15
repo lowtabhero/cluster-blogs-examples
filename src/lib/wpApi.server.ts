@@ -33,6 +33,7 @@ export async function requestWP(event: RequestEvent, endpoint: string, urlParams
   }
 }
 
+
 type WPBlog = {
   id: number;
   slug: string;
@@ -53,7 +54,6 @@ type WPBlog = {
 }
 
 export function isWPBlog(blog: any): blog is WPBlog {
-  // console.log(blog)
   const id = blog.id;
   if (!Number.isInteger(id)) return false;
 
@@ -88,3 +88,8 @@ export function normalizeBlog(blog: WPBlog): NormalizedBlog {
     featuredMedia: blog._embedded["wp:featuredmedia"]?.[0]?.source_url ?? ''
   }
 }
+
+
+export const acceptedTypes = new Map();
+acceptedTypes.set('pillars', 80);
+acceptedTypes.set('clusters', 82);
