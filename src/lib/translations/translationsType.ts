@@ -1,7 +1,17 @@
 export type Translation = {
   header: {
-    examplesLink: string,
-    contactsLink: string,
+    examplesLink: string;
+    contactsLink: string;
+  },
+  home: {
+    title: string;
+    paragraph: string;
+    filter: {
+      label: string;
+      all: string;
+      pillars: string;
+      clusters: string;
+    }
   }
 }
 export type Lang = 'en' | 'ru' | 'es';

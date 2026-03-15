@@ -5,4 +5,14 @@ export const translation: Translation = {
     examplesLink: 'Examples',
     contactsLink: 'Contact'
   },
+  home: {
+    title: 'Title en',
+    paragraph: 'Some desc en',
+    filter: {
+      label: 'Show',
+      all: 'All',
+      pillars: 'Pillars',
+      clusters: 'Clusters',
+    }
+  }
 }
