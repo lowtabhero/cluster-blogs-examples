@@ -8,7 +8,7 @@
 
 	const { data } = $props();
 
-	let filterValue = $state(data.filter ?? 'all');
+	let filterValue = $derived(data.filter ?? 'all');
 	let page = $derived(data.page ?? 1);
 	let canNext = $derived(data.blogs && data.blogs.length >= 10);
 	let canPrev = $derived(page > 1);
