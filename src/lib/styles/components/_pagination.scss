@@ -1,0 +1,16 @@
+.pagination {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+
+  >button {
+    cursor: pointer;
+    padding: .5rem 1rem;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+}

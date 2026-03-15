@@ -6,8 +6,12 @@ export async function load(event) {
 
   // get page param
   const pageParam = event.url.searchParams.get('page');
-  const page = pageParam ? Number.parseInt(pageParam) : 0;
-  if (Number.isInteger(page) && page > 0) urlParams.set('page', page.toString());
+  let page = pageParam ? Number.parseInt(pageParam) : 1;
+  if (Number.isInteger(page) && page > 1) {
+    urlParams.set('page', page.toString());
+  } else {
+    page = 1;
+  }
 
   // get type param
   const typeParam = event.url.searchParams.get('type');
@@ -29,6 +33,7 @@ export async function load(event) {
 
   return {
     blogs: normalizedBlogs,
-    filter: typeParam
+    filter: typeParam,
+    page: page
   }
 }

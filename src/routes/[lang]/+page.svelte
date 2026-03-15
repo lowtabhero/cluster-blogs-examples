@@ -4,10 +4,22 @@
 	import { goto } from '$app/navigation';
 	import BlogsGrid from '$lib/components/BlogsGrid.svelte';
 	import BlogCard from '$lib/components/BlogCard.svelte';
+	import Pagination from '$lib/components/Pagination.svelte';
 
 	const { data } = $props();
 
 	let filterValue = $state(data.filter ?? 'all');
+	let page = $derived(data.page ?? 1);
+	let canNext = $derived(data.blogs && data.blogs.length >= 10);
+	let canPrev = $derived(page > 1);
+
+	$effect(() => {
+		if (page <= 1 || !Number.isInteger(page)) {
+			const url = new URL(window.location.href);
+			url.searchParams.delete('page');
+			goto(url);
+		}
+	});
 
 	function handleChangeFilter() {
 		const url = new URL(window.location.href);
@@ -19,6 +31,18 @@
 		}
 
 		url.searchParams.delete('page');
+		goto(url);
+	}
+
+	function handleClickNextPage() {
+		const url = new URL(window.location.href);
+		url.searchParams.set('page', (page + 1).toString());
+		goto(url);
+	}
+
+	function handleClickPrevPage() {
+		const url = new URL(window.location.href);
+		url.searchParams.set('page', (page - 1).toString());
 		goto(url);
 	}
 </script>
@@ -41,5 +65,5 @@
 			<BlogCard data={blog} lang={data.lang} />
 		{/each}
 	</BlogsGrid>
-	<div class="pagination">pagination here</div>
+	<Pagination {handleClickNextPage} {handleClickPrevPage} {canNext} {canPrev} />
 </main>
