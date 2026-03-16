@@ -6,6 +6,8 @@ export type Translation = {
   home: {
     title: string;
     paragraph: string;
+    genTime: string;
+    genCost: string;
     filter: {
       label: string;
       all: string;
@@ -16,7 +18,6 @@ export type Translation = {
   blog: {
     backTo: string;
     h1Title: string;
-    genType: string;
   }
 }
 export type Lang = 'en' | 'ru' | 'es';

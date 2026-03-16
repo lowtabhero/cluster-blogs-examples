@@ -47,10 +47,16 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Examples | StockScout Internal</title>
+</svelte:head>
+
 <main>
 	<div class="page-info">
 		<h1>{data.translation.home.title}</h1>
 		<p>{data.translation.home.paragraph}</p>
+		<p class="gen-time">{data.translation.home.genTime} ≈ 10min</p>
+		<p class="gen-cost">{data.translation.home.genCost} 1$</p>
 	</div>
 	<div class="filter">
 		<label for="blog-type">{data.translation.home.filter.label}</label>
