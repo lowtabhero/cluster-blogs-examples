@@ -1,3 +1,13 @@
-# allow crawling everything by default
 User-agent: *
+
+# Allow only the top-level language landing pages.
+Allow: /en$
+Allow: /es$
+Allow: /ru$
+
+# Block everything nested under those language prefixes.
+Disallow: /en/
+Disallow: /es/
+Disallow: /ru/
+
 Disallow: /
