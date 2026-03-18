@@ -49,6 +49,11 @@
 
 <svelte:head>
 	<title>Examples | StockScout Internal</title>
+	<link rel="canonical" href="https://examples.stockscout.eu/{data.lang}" />
+	<link rel="alternate" hreflang="en" href="https://examples.stockscout.eu/en" />
+	<link rel="alternate" hreflang="es" href="https://examples.stockscout.eu/es" />
+	<link rel="alternate" hreflang="ru" href="https://examples.stockscout.eu/ru" />
+	<link rel="alternate" hreflang="x-default" href="https://examples.stockscout.eu/en" />
 </svelte:head>
 
 <main>
