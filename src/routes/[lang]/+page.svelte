@@ -7,6 +7,7 @@
 	import Pagination from '$lib/components/Pagination.svelte';
 
 	const { data } = $props();
+	let urlPageParam = $derived(data.page && data.page > 1 ? `?page=${data.page}` : '');
 
 	let filterValue = $derived(data.filter ?? 'all');
 	let page = $derived(data.page ?? 1);
@@ -49,11 +50,15 @@
 
 <svelte:head>
 	<title>Examples | StockScout Internal</title>
-	<link rel="canonical" href="https://examples.stockscout.eu/{data.lang}" />
-	<link rel="alternate" hreflang="en" href="https://examples.stockscout.eu/en" />
-	<link rel="alternate" hreflang="es" href="https://examples.stockscout.eu/es" />
-	<link rel="alternate" hreflang="ru" href="https://examples.stockscout.eu/ru" />
-	<link rel="alternate" hreflang="x-default" href="https://examples.stockscout.eu/en" />
+	<link rel="canonical" href="https://examples.stockscout.eu/{data.lang}{urlPageParam}" />
+	<link rel="alternate" hreflang="en" href="https://examples.stockscout.eu/en{urlPageParam}" />
+	<link rel="alternate" hreflang="es" href="https://examples.stockscout.eu/es{urlPageParam}" />
+	<link rel="alternate" hreflang="ru" href="https://examples.stockscout.eu/ru{urlPageParam}" />
+	<link
+		rel="alternate"
+		hreflang="x-default"
+		href="https://examples.stockscout.eu/en{urlPageParam}"
+	/>
 </svelte:head>
 
 <main>
