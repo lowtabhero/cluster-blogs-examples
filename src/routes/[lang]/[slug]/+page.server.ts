@@ -1,6 +1,6 @@
 import { requestWP, normalizeBlog } from "$lib/wpApi.server";
 import type { NormalizedBlog } from "$lib/NormalizedBlogType.js";
-import { isWPBlog } from "$lib/wpApi.server";
+import { isWPBlog, acceptedCategories } from "$lib/wpApi.server";
 
 export async function load(event) {
   const params = event.params;
@@ -19,8 +19,27 @@ export async function load(event) {
 
   const normalizedBlog: NormalizedBlog = normalizeBlog(blog);
 
+  // get related
+  const tagId = normalizedBlog.tagId;
+  const relatedUrlParams = new URLSearchParams({
+    tags: tagId.toString(),
+    per_page: '50'
+  })
+
+  const relatedResponse = await requestWP(event, `posts`, relatedUrlParams);
+  if (!relatedResponse.ok) return;
+
+  if (!Array.isArray(relatedResponse.data) || relatedResponse.data.length === 0) return;
+
+  const relatedBlogs = relatedResponse.data;
+  const normalizedRelated = [];
+  for (let relatedBlog of relatedBlogs) {
+    const normalized: NormalizedBlog = normalizeBlog(relatedBlog);
+    normalizedRelated.push(normalized);
+  }
+
   return {
-    blog: normalizedBlog
-    // related blogs
+    blog: normalizedBlog,
+    relatedBlogs: normalizedRelated
   }
 }

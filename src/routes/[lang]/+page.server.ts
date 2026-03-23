@@ -1,4 +1,4 @@
-import { requestWP, normalizeBlog, acceptedTypes } from "$lib/wpApi.server";
+import { requestWP, normalizeBlog, acceptedCategories } from "$lib/wpApi.server";
 import type { NormalizedBlog } from "$lib/NormalizedBlogType.js";
 
 export async function load(event) {
@@ -15,8 +15,8 @@ export async function load(event) {
 
   // get type param
   const typeParam = event.url.searchParams.get('type');
-  if (typeParam && acceptedTypes.has(typeParam)) {
-    urlParams.set('categories', acceptedTypes.get(typeParam).toString())
+  if (typeParam && acceptedCategories.has(typeParam)) {
+    urlParams.set('categories', acceptedCategories.get(typeParam).toString())
   }
 
   // get posts

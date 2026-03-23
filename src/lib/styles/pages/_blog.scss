@@ -35,6 +35,25 @@ main {
     }
   }
 
+  >.cluster-scheme {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    >.pillar-wrapper {
+      // display: ;
+      // background-color: white;
+    }
+
+
+    >.clusters-wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+  }
+
   >.content {
     >h2 {
       margin: 1.5rem 0;

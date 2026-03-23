@@ -42,6 +42,7 @@ type WPBlog = {
   excerpt?: { rendered: string };
   content?: { rendered: string };
   tags?: Array<number>;
+  categories?: Array<number>;
   _embedded: {
     ["wp:featuredmedia"]?: Array<{ source_url: string }>;
     ['wp:term']?: Array<
@@ -77,10 +78,21 @@ export function normalizeBlog(blog: WPBlog): NormalizedBlog {
     tag = termsTag?.name ?? '';
   }
 
+  const wpCategories = blog.categories || [];
+  let type = '';
+  for (let [name, id] of acceptedCategories.entries()) {
+    if (wpCategories.includes(id)) {
+      type = name;
+      break;
+    }
+  }
+
   return {
     id: blog.id,
     slug: blog.slug,
+    tagId: wpTagId,
     tag: tag,
+    type: type,
     title: blog.title?.rendered ?? '',
     meta: blog.meta?.rank_math_description ?? '',
     content: blog.content?.rendered ?? '',
@@ -89,7 +101,6 @@ export function normalizeBlog(blog: WPBlog): NormalizedBlog {
   }
 }
 
-
-export const acceptedTypes = new Map();
-acceptedTypes.set('pillars', 80);
-acceptedTypes.set('clusters', 82);
+export const acceptedCategories = new Map();
+acceptedCategories.set('pillars', 80);
+acceptedCategories.set('clusters', 82);
